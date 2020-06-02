@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { SearchBox } from './components/Search-box/search-box.component';
 import { CardList } from './components/card-list/card-list.component';
 import './App.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button'; //bootstrap component
 
 class App extends Component {
   constructor() {
@@ -35,12 +39,26 @@ class App extends Component {
     
     return (      
       <div className="App">
-      <h1>Monsters Rolodex</h1>
-        <SearchBox searchField={searchField} 
-        placeHolder="Search Monsters..."
-        handleChange={e => this.setState({searchField: e.target.value})}/>
-        <CardList monsters={filteredMonsters} />
-      </div> 
+      <Container>
+        <Row>
+          <Col>
+            <h1>Monsters Rolodex</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <SearchBox searchField={searchField} 
+            placeHolder="Search Monsters..."
+            handleChange={e => this.setState({searchField: e.target.value})}/>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <CardList monsters={filteredMonsters} />
+          </Col>
+        </Row>
+        </Container> 
+        </div>
     )
   }
 }
